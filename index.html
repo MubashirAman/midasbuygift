@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midasbuy Clone</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d1636;
+            color: white;
+        }
+        header {
+            background-color: #002459;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        header .tabs {
+            display: flex;
+            gap: 15px;
+            margin-left: 20px;
+        }
+        header .tabs a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #003366;
+        }
+        header .tabs a:hover {
+            background-color: #0078ff;
+        }
+        header .actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        header .actions img {
+            height: 20px;
+            width: auto;
+        }
+        .banner {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 400px;
+        }
+        .banner-images {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+        .banner-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        .banner-content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .banner-content button {
+            background-color: #0078ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .games {
+            padding: 50px;
+        }
+        .games h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 250px;
+        }
+        .game-card {
+            background-color: #1a1f3b;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+            overflow: hidden;
+        }
+        .game-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #0078ff;
+        }
+        .game-card h3 {
+            margin: 10px 0;
+        }
+        .game-card .bonus {
+            background-color: #0078ff;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+        }
+        .payment-section {
+            padding: 20px;
+        }
+        .payment-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .payment-category {
+            background-color: #1a1f3b;
+            border-radius: 10px;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+        }
+        .payment-category h3 {
+            margin-bottom: 10px;
+        }
+        .payment-category img {
+            width: 50px;
+            height: auto;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Midasbuy</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Midasbuy Events</a>
+            <a href="#">Help Center</a>
+        </nav>
+        <div class="tabs">
+            <a href="#">Popular Games</a>
+            <a href="#">Latest News</a>
+        </div>
+        <div class="tabs">
+        <div class="actions">
+            <a href="pages/pagelogin.html">Sign in</a>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Flag_of_Pakistan.svg/1200px-Flag_of_Pakistan.svg.png" alt="Flag" />
+        </div>
+        </div>
+    </header>
+
+   
+    <div class="banner">
+        <div class="banner-images" id="bannerImages">
+            <img src="./images/mainpic.jpg" alt="Banner 1">
+            <img src="./images/lts1.jpg" alt="Banner 2">
+            <img src="./images/lts2.jpg" alt="Banner 3">
+        </div>
+        <div class="banner-content">
+            <h1>Midasbuy New Year Live</h1>
+            <p>Celebrate with PUBG Mobile & Other Games</p>
+            <a href="pages/pagelogin.html"><button>Go</button></a>
+        </div>
+    </div>
+
+
+    <div class="games">
+        <h2>Popular Games</h2>
+        <div class="games-grid">
+            <div class="game-card">
+               <a href="pages/pagelogin.html"> <img src="./images/pubg.png" alt="PUBG Mobile"></a>
+                <h3>PUBG Mobile</h3>
+                <div class="bonus">Extra Discount</div>
+            </div>
+            <div class="game-card">
+                <img src="./images/deltaforce.png" alt="Delta Force">
+                <h3>Delta Force</h3>
+                <div class="bonus">Extra Bonus</div>
+            </div>
+            <div class="game-card">
+                <img src="./images/honorofking.png" alt="Honor of Kings">
+                <h3>Honor of Kings</h3>
+                <div class="bonus">Extra Bonus</div>
+            </div>
+            <div class="game-card">
+                <img src="./images/ageofempires.png" alt="Age of Empires">
+                <h3>Age of Empires</h3>
+                <div class="bonus">Extra Discount</div>
+            </div>
+            <div class="game-card">
+                <img src="./images/arena.png" alt="Arena Breakout">
+                <h3>Arena Breakout</h3>
+                <div class="bonus">Extra Bonus</div>
+            </div>
+            <div class="game-card">
+                <img src="./images/silent.png" alt="Dragonheir:Silent Gods">
+                <h3>Dragonheir:Silent Gods</h3>
+                <div class="bonus">Extra Bonus</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-section">
+        <h2>Payment Channel Partners</h2>
+        <div class="payment-grid">
+            <div class="payment-category">
+                <h3>CREDIT CARD</h3>
+                <img src="./images/debit.png" alt="Credit Card">
+                <p>Credit Card/ Debit Card/ Prepaid Card</p>
+            </div>
+            <div class="payment-category">
+                <h3>EWALLET</h3>
+                <img src="./images/applepay.png" alt="Apple Pay">
+                <p>Apple Pay</p>
+                <img src="./images/razergold.png" alt="Razer Gold">
+                <p>Razer Gold</p>
+                <img src="./images/paypal.png" alt="PayPal">
+                <p>PayPal</p>
+            </div>
+            <div class="payment-category">
+                <h3>VOUCHER</h3>
+                <img src="./images/paycard.png" alt="Paysafecard">
+                <p>Paysafecard</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.getElementById('bannerImages');
+        const imageList = images.children;
+        const totalImages = imageList.length;
+    
+        // Ensure the images container width is set to the total width of all images.
+        images.style.display = 'flex';
+        images.style.width = `${100 * totalImages}%`;
+    
+        // Function to change image
+        function changeImage() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            images.style.transition = 'transform 1s ease';  // Smooth transition
+            images.style.transform = `translateX(-${currentIndex * (100 / totalImages)}%)`;
+        }
+    
+        // Change image every 3 seconds
+        setInterval(() => {
+            changeImage();
+        }, 3000); // 3 seconds delay between image changes
+    </script>
+    
+    
+</body>
+</html>
